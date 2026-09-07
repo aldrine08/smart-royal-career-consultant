@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --srcc-purple: #5b21b6;
+  --srcc-purple-dark: #3b0764;
+  --srcc-purple-deep: #24043d;
+
+  --srcc-gold: #eab308;
+  --srcc-gold-light: #facc15;
+  --srcc-gold-dark: #ca8a04;
+
+  --srcc-black: #09090b;
+  --srcc-white: #ffffff;
+
+  --srcc-gray-50: #fafafa;
+  --srcc-gray-100: #f4f4f5;
+  --srcc-gray-200: #e4e4e7;
+  --srcc-gray-500: #71717a;
+  --srcc-gray-700: #3f3f46;
+  --srcc-gray-900: #18181b;
+
+  --srcc-radius-sm: 0.5rem;
+  --srcc-radius-md: 0.875rem;
+  --srcc-radius-lg: 1.25rem;
+  --srcc-radius-xl: 1.75rem;
+
+  --srcc-container: 1280px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--srcc-white);
+  color: var(--srcc-black);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--srcc-gold);
+  color: var(--srcc-black);
+}
+
+.srcc-container {
+  width: min(100% - 2rem, var(--srcc-container));
+  margin-inline: auto;
+}
+
+.srcc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--srcc-purple);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.srcc-eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  background: var(--srcc-gold);
+}
+
+.srcc-focus-ring:focus-visible {
+  outline: 3px solid rgba(234, 179, 8, 0.55);
+  outline-offset: 4px;
+}
+
+@media (min-width: 768px) {
+  .srcc-container {
+    width: min(100% - 4rem, var(--srcc-container));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
