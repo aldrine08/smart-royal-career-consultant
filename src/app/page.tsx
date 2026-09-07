@@ -3,6 +3,7 @@ import WhoWeAre from "@/components/home/WhoWeAre";
 import Services from "@/components/home/Services";
 import WhySRCC from "@/components/home/WhySRCC";
 import CareerPeople from "@/components/home/CareerPeople";
+import HROrganizationalSolutions from "@/components/home/HROrganizationalSolutions";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Services />
       <WhySRCC />
       <CareerPeople />
+      <HROrganizationalSolutions />
     </>
   );
 }
