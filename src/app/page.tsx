@@ -4,6 +4,7 @@ import Services from "@/components/home/Services";
 import WhySRCC from "@/components/home/WhySRCC";
 import CareerPeople from "@/components/home/CareerPeople";
 import HROrganizationalSolutions from "@/components/home/HROrganizationalSolutions";
+import ExperienceTrust from "@/components/home/ExperienceTrust";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <WhySRCC />
       <CareerPeople />
       <HROrganizationalSolutions />
+      <ExperienceTrust />
     </>
   );
 }
