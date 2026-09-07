@@ -1,86 +1,115 @@
-import Link from "next/link";
+import Button from "@/components/ui/Button";
+import SectionHeading from "@/components/ui/SectionHeading";
+import Card from "@/components/ui/Card";
 
 export default function Home() {
   return (
-    <section className="relative overflow-hidden bg-white">
-      <div className="srcc-container">
-        <div className="grid min-h-[calc(100vh-5rem)] items-center gap-16 py-20 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="max-w-3xl">
+    <div className="bg-white">
+      <section className="relative overflow-hidden">
+        <div className="srcc-container py-28 md:py-36">
+          <div className="max-w-4xl">
             <span className="srcc-eyebrow">
               Smart Royal Career Consultant
             </span>
 
-            <h1 className="mt-7 text-5xl font-black tracking-[-0.04em] text-zinc-950 sm:text-6xl lg:text-7xl">
+            <h1 className="srcc-heading-xl mt-7">
               Empowering careers.
               <span className="block text-[var(--srcc-purple)]">
                 Strengthening organizations.
               </span>
             </h1>
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-zinc-600">
+            <p className="srcc-body-lg mt-7 max-w-2xl">
               Professional career and corporate development solutions built
               around people, performance, opportunity and organizational
               growth.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
-              <Link
-                href="/services"
-                className="srcc-focus-ring inline-flex items-center justify-center rounded-full bg-[var(--srcc-purple)] px-6 py-3.5 text-sm font-bold text-white shadow-xl shadow-purple-900/15 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--srcc-purple-dark)]"
-              >
+              <Button href="/services">
                 Explore Services
-              </Link>
+              </Button>
 
-              <Link
-                href="/contact"
-                className="srcc-focus-ring inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3.5 text-sm font-bold text-zinc-900 transition-all duration-200 hover:border-[var(--srcc-purple)] hover:text-[var(--srcc-purple)]"
-              >
+              <Button href="/contact" variant="secondary">
                 Talk to SRCC
-              </Link>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[var(--srcc-gold)]/20 blur-3xl" />
-
-            <div className="relative overflow-hidden rounded-[2rem] bg-[var(--srcc-purple-deep)] p-8 shadow-2xl shadow-purple-950/20 sm:p-10">
-              <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-[var(--srcc-gold)]/20 blur-2xl" />
-
-              <div className="relative">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--srcc-gold-light)]">
-                  Est. 2013
-                </p>
-
-                <h2 className="mt-6 text-3xl font-black tracking-tight text-white sm:text-4xl">
-                  Professional HR & Career Solutions
-                </h2>
-
-                <p className="mt-5 max-w-md text-sm leading-7 text-purple-100/75">
-                  From career progression to recruitment, HR consulting and
-                  organizational support, SRCC provides practical solutions
-                  designed around client needs.
-                </p>
-
-                <div className="mt-8 grid grid-cols-2 gap-4">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <div className="text-2xl font-black text-white">HR</div>
-                    <div className="mt-1 text-xs uppercase tracking-wider text-purple-200/70">
-                      Consulting
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <div className="text-2xl font-black text-white">01</div>
-                    <div className="mt-1 text-xs uppercase tracking-wider text-purple-200/70">
-                      Trusted Focus
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </Button>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="border-y border-zinc-200 bg-zinc-50">
+        <div className="srcc-container py-20 md:py-28">
+          <SectionHeading
+            eyebrow="Our expertise"
+            title="Professional solutions across the employment lifecycle."
+            description="SRCC's company profile describes services spanning career progression, HR consulting, recruitment, HR outsourcing, performance management and payroll/accounting solutions."
+          />
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <span className="text-sm font-bold text-[var(--srcc-purple)]">
+                01
+              </span>
+
+              <h3 className="mt-5 text-xl font-bold text-zinc-950">
+                HR Consulting
+              </h3>
+
+              <p className="mt-3 text-sm leading-7 text-zinc-600">
+                Practical human resource support and best-practice
+                recommendations for day-to-day organizational challenges.
+              </p>
+            </Card>
+
+            <Card>
+              <span className="text-sm font-bold text-[var(--srcc-purple)]">
+                02
+              </span>
+
+              <h3 className="mt-5 text-xl font-bold text-zinc-950">
+                Recruitment & Selection
+              </h3>
+
+              <p className="mt-3 text-sm leading-7 text-zinc-600">
+                Recruitment support covering advertising, screening,
+                interviewing, verification and candidate selection.
+              </p>
+            </Card>
+
+            <Card>
+              <span className="text-sm font-bold text-[var(--srcc-purple)]">
+                03
+              </span>
+
+              <h3 className="mt-5 text-xl font-bold text-zinc-950">
+                Career Coaching
+              </h3>
+
+              <p className="mt-3 text-sm leading-7 text-zinc-600">
+                Career direction, strategic progression, confidence,
+                leadership and networking support.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[var(--srcc-purple-deep)]">
+        <div className="srcc-container py-20 md:py-28">
+          <SectionHeading
+            eyebrow="SRCC"
+            title="A stronger digital experience is coming together."
+            description="This is our design-system checkpoint. The full homepage experience will be developed next using these reusable foundations."
+          />
+
+          <div className="mt-10">
+            <Button href="/contact" variant="gold">
+              Work With SRCC
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

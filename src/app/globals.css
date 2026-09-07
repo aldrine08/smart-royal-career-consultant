@@ -1,30 +1,82 @@
 @import "tailwindcss";
 
 :root {
+  /* ================================
+     SRCC BRAND COLORS
+     ================================ */
+
   --srcc-purple: #5b21b6;
-  --srcc-purple-dark: #3b0764;
+  --srcc-purple-dark: #4c1d95;
   --srcc-purple-deep: #24043d;
+  --srcc-purple-soft: #f5f3ff;
 
   --srcc-gold: #eab308;
   --srcc-gold-light: #facc15;
-  --srcc-gold-dark: #ca8a04;
+  --srcc-gold-dark: #a16207;
+  --srcc-gold-soft: #fefce8;
 
   --srcc-black: #09090b;
+  --srcc-black-soft: #18181b;
+
   --srcc-white: #ffffff;
+
+  /* ================================
+     NEUTRAL SCALE
+     ================================ */
 
   --srcc-gray-50: #fafafa;
   --srcc-gray-100: #f4f4f5;
   --srcc-gray-200: #e4e4e7;
+  --srcc-gray-300: #d4d4d8;
+  --srcc-gray-400: #a1a1aa;
   --srcc-gray-500: #71717a;
+  --srcc-gray-600: #52525b;
   --srcc-gray-700: #3f3f46;
+  --srcc-gray-800: #27272a;
   --srcc-gray-900: #18181b;
+
+  /* ================================
+     TYPOGRAPHY
+     ================================ */
+
+  --srcc-text: #18181b;
+  --srcc-text-muted: #52525b;
+  --srcc-text-subtle: #71717a;
+
+  /* ================================
+     LAYOUT
+     ================================ */
+
+  --srcc-container: 1280px;
+  --srcc-content: 760px;
+
+  /* ================================
+     RADIUS
+     ================================ */
 
   --srcc-radius-sm: 0.5rem;
   --srcc-radius-md: 0.875rem;
   --srcc-radius-lg: 1.25rem;
   --srcc-radius-xl: 1.75rem;
+  --srcc-radius-2xl: 2.25rem;
 
-  --srcc-container: 1280px;
+  /* ================================
+     SHADOWS
+     ================================ */
+
+  --srcc-shadow-sm: 0 4px 12px rgba(9, 9, 11, 0.05);
+  --srcc-shadow-md: 0 12px 30px rgba(9, 9, 11, 0.08);
+  --srcc-shadow-lg: 0 24px 60px rgba(9, 9, 11, 0.12);
+
+  /* ================================
+     MOTION
+     ================================ */
+
+  --srcc-duration-fast: 180ms;
+  --srcc-duration-base: 300ms;
+  --srcc-duration-slow: 600ms;
+
+  --srcc-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -71,6 +123,46 @@ a {
   margin-inline: auto;
 }
 
+.srcc-display {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  font-weight: 800;
+}
+
+.srcc-heading-xl {
+  font-size: clamp(2.5rem, 5vw, 4.75rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+}
+
+.srcc-heading-lg {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+.srcc-heading-md {
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 750;
+}
+
+.srcc-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--srcc-text-muted);
+}
+
+.srcc-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--srcc-text-muted);
+}
+
 .srcc-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -94,6 +186,27 @@ a {
   outline-offset: 4px;
 }
 
+.srcc-gold-line {
+  position: relative;
+  height: 2px;
+  width: 3.5rem;
+  overflow: hidden;
+  background: var(--srcc-gold);
+}
+
+.srcc-gold-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: var(--srcc-purple);
+  transition: transform var(--srcc-duration-slow) var(--srcc-ease);
+}
+
+.srcc-gold-line:hover::after {
+  transform: translateX(0);
+}
+
 @media (min-width: 768px) {
   .srcc-container {
     width: min(100% - 4rem, var(--srcc-container));
@@ -113,3 +226,32 @@ a {
     transition-duration: 0.01ms !important;
   }
 }
+
+.srcc-focus-ring:focus-visible {
+  outline: 3px solid rgba(234, 179, 8, 0.55);
+  outline-offset: 4px;
+}
+
+.srcc-link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.srcc-link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -0.3rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  background: var(--srcc-gold);
+  transition: transform var(--srcc-duration-base) var(--srcc-ease);
+}
+
+.srcc-link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
